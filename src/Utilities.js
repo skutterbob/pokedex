@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default class Utilities {
 
 	static checkResponse(response) {
