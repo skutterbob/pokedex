@@ -11,7 +11,6 @@ import {
 	DrawerCloseButton,
 	Flex,
 	Image,
-	Link,
 	Modal,
   	ModalOverlay,
 	ModalContent,
