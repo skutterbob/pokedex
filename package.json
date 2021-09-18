@@ -1,7 +1,7 @@
 {
   "name": "pokedex",
   "version": "0.1.0",
-  "homepage": "https://skutterbob.github.io",
+  "homepage": "https://skutterbob.github.io/pokedex",
   "private": true,
   "dependencies": {
     "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining": "^7.15.4",
