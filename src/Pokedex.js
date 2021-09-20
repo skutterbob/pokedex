@@ -26,6 +26,7 @@ import {
 import Utilities from './Utilities.js';
 import { Pokeball } from './Pokeball.js';
 import images from './images.js';
+import pokemonImages from './pokemonImages.js';
 
 
 
@@ -203,7 +204,8 @@ class SinglePokedex extends React.Component {
 				<Button key={pokemon[0]} onClick={() => this.openDrawer(pokemon[0], pokemon[1])} m="10px" p="10px" h="auto">
 				<Flex justify="space-between" w={[300, 400, 500]} m="0" p="0" borderRadius="lg" bg="gray.100">
 					<Box p="10px" m="10px">{Utilities.formatName(pokemon[0])}</Box>
-					<Image src={urlStart + pokemon[0] + "-normal.png"} p="10px" m="10px" w="20%"/>
+
+					<Image src={pokemonImages[Utilities.getPokemonImageName(pokemon[0] + "normal")]} p="10px" m="10px" w="20%"/>
 				</Flex>
 				</Button>
 				))}

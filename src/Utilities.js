@@ -9,10 +9,18 @@ export default class Utilities {
 
 	static formatName(name) {
 		const words = name.split("-");
-		for (var i = 0; i < words.length; i++) {
+		for (let i = 0; i < words.length; i++) {
 			words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);
 		}
 		return words.join(" ");
+	}
+
+	static getPokemonImageName(name) {
+		let fname = name;
+		if (name.includes("-")) {
+			fname = name.replace("-", "");
+		}
+		return fname;
 	}
 
 	static calculatePokemonHeight(height) {
