@@ -35,7 +35,7 @@ import m_rock from "./images/m_rock.png";
 import m_steel from "./images/m_steel.png";
 import m_water from "./images/m_water.png";
 
-export default {
+const typeImages = {
 	bug: bug,
 	dark: dark,
 	dragon: dragon,
@@ -74,3 +74,5 @@ export default {
 	m_water: m_water
 
 }
+
+export default typeImages;

@@ -1795,7 +1795,7 @@ import spectriershiny from "./images/pokemon/spectrier-shiny.png"
 import calyrexnormal from "./images/pokemon/calyrex-normal.png"
 import calyrexshiny from "./images/pokemon/calyrex-shiny.png"
 
-export default {
+const pokemonImages = {
 	bulbasaurnormal: bulbasaurnormal,
 	bulbasaurshiny: bulbasaurshiny,
 	ivysaurnormal: ivysaurnormal,
@@ -3593,3 +3593,5 @@ export default {
 	calyrexnormal: calyrexnormal,
 	calyrexshiny: calyrexshiny,
 }
+
+export default pokemonImages;

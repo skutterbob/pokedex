@@ -25,7 +25,7 @@ import {
 } from '@chakra-ui/react';
 import Utilities from './Utilities.js';
 import { Pokeball } from './Pokeball.js';
-import images from './images.js';
+import typeImages from './images.js';
 import pokemonImages from './pokemonImages.js';
 
 
@@ -402,7 +402,7 @@ class Pokemon extends React.Component {
 				<Flex justify="center">
 					{this.state.types.map(pType => (
 						<button key={pType[0]} nohref="true" onClick={() => this.openTypeModal(pType[1])} >
-						<Image src={images[pType[0]]} alt={pType[0]} p="20px" w={["30vw", "20vw", "10vw"]}/>
+						<Image src={typeImages[pType[0]]} alt={pType[0]} p="20px" w={["30vw", "20vw", "10vw"]}/>
 						</button>
 					))}
 				</Flex>
@@ -514,7 +514,7 @@ class PokemonType extends React.Component {
 						{this.state.doubleDamageFrom.length > 0 ? (
 						this.state.doubleDamageFrom.map(pType => (
 							
-							<Image key={pType.name} src={images[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
+							<Image key={pType.name} src={typeImages[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
 							
 							))
 						) : (<p>None</p>)}
@@ -527,7 +527,7 @@ class PokemonType extends React.Component {
 						{this.state.doubleDamageTo.length > 0 ? (
 						this.state.doubleDamageTo.map(pType => (
 							
-							<Image key={pType.name} src={images[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
+							<Image key={pType.name} src={typeImages[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
 							
 							))
 						) : (<p>None</p>)}
@@ -540,7 +540,7 @@ class PokemonType extends React.Component {
 						{this.state.halfDamageFrom.length > 0 ? (
 						this.state.halfDamageFrom.map(pType => (
 							
-							<Image key={pType.name} src={images[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
+							<Image key={pType.name} src={typeImages[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
 							
 							))
 						) : (<p>None</p>)}
@@ -553,7 +553,7 @@ class PokemonType extends React.Component {
 						{this.state.halfDamageTo.length > 0 ? (
 						this.state.halfDamageTo.map(pType => (
 							
-							<Image key={pType.name} src={images[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
+							<Image key={pType.name} src={typeImages[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
 							
 							))
 						) : (<p>None</p>)}
@@ -566,7 +566,7 @@ class PokemonType extends React.Component {
 						{this.state.noDamageFrom.length > 0 ? (
 						this.state.noDamageFrom.map(pType => (
 							
-							<Image key={pType.name} src={images[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
+							<Image key={pType.name} src={typeImages[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
 							
 							))
 						) : (<p>None</p>)}
@@ -579,7 +579,7 @@ class PokemonType extends React.Component {
 						{this.state.noDamageTo.length > 0 ? (
 						this.state.noDamageTo.map(pType => (
 							
-							<Image key={pType.name} src={images[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
+							<Image key={pType.name} src={typeImages[prefix + pType.name]} alt={pType.name} p="5px" h="40px"/>
 							
 							))
 						) : (<p>None</p>)}
