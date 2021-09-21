@@ -188,7 +188,7 @@ class SinglePokedex extends React.Component {
 
 	render() {
 
-		const urlStart = "http://skutters.com/pokemon/";
+		
 		
 		return(
 			<>
@@ -373,7 +373,7 @@ class Pokemon extends React.Component {
 
 	render() {
 
-		const imageUrl = "http://skutters.com/pokemon/";
+		
 
 		return (
 			<>
@@ -385,7 +385,7 @@ class Pokemon extends React.Component {
 			
 				<Box m="1em">{this.state.desc}</Box>
 
-				<Image src={imageUrl + this.props.name + "-normal.png"} m="1em"/>
+				<Image src={pokemonImages[Utilities.getPokemonImageName(this.props.name + "normal")]} m="1em"/>
 
 
 				<h3>Abilities:</h3>
