@@ -37,7 +37,7 @@ class PokedexCard extends React.Component {
 		return (
 
 				<>
-				<Button onClick={this.openModal} p="10px" m="10px" h="auto">
+				<Button onClick={this.openModal} p="10px" m="10px" h="auto" >
 				<Flex justify="space-between" w={[300, 400, 500]} p="0" m="0" borderRadius="lg" bg="gray.100">
 					<Pokeball w="15%" p="10px" m="10px"/>
 					<Box p="10px" m="10px">{this.props.name}</Box>
