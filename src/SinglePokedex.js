@@ -28,6 +28,7 @@ class SinglePokedex extends React.Component {
 			name: props.name,
 			url: props.url,
 			desc: "",
+			versions: [],
 			pokemon_entries: [],
 			selectedPokemonName: "",
 			selectedPokemonUrl: "",
@@ -48,22 +49,33 @@ class SinglePokedex extends React.Component {
 			const singlePokedexRequest = await fetch(this.props.url).then(Utilities.checkResponse);
 			const singlePokedexJson = await singlePokedexRequest.json();
 			
-			let pokedexDescription = "";
-
+			let descData = "";
 			for (let i = 0; i < singlePokedexJson.descriptions.length; i++) {
 
 				if (singlePokedexJson.descriptions[i].language.name === "en") {
-					pokedexDescription = singlePokedexJson.descriptions[i].description;
+					descData = singlePokedexJson.descriptions[i].description;
 
 				}
 			}
-			let entries = [];
+			let entriesData = [];
 			for (let i = 0; i < singlePokedexJson.pokemon_entries.length; i++) {
 				let pokemon = singlePokedexJson.pokemon_entries[i].pokemon_species;
-				entries.push([pokemon.name, pokemon.url]);
+				entriesData.push([pokemon.name, pokemon.url]);
 			}
+
+			let versionsData = [];
+			for (let i = 0; i < singlePokedexJson.version_groups.length; i++) {
+				let version = singlePokedexJson.version_groups[i];
+				versionsData.push([version.name, version.url]);
+			}
+
 			
-			this.setState({pokemon_entries: entries, desc: pokedexDescription, loading: false});
+			this.setState({
+				pokemon_entries: entriesData,
+				desc: descData,
+				versions: versionsData,
+				loading: false
+			});
 		} catch(e) {
 			console.log(e);
 		}
@@ -80,6 +92,11 @@ class SinglePokedex extends React.Component {
 			{this.state.loading ? (<Center><Pokeball w="50%"/></Center>) : (
 			<>
 			<Box p="10px">{this.state.desc}</Box>
+			{(this.state.versions.length === 0) ? "" : 
+				<Box p="10px">Versions: {this.state.versions.map(version => (
+					<p key={version[0]}>{Utilities.formatName(version[0])}</p>
+				))}</Box>
+			}
 
 			<Center>
 			<Flex id="pokemon" wrap="wrap" w="95%" justify="space-evenly" grow="1">

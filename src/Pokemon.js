@@ -20,6 +20,7 @@ import pokemonImages from './pokemonImages.js';
 
 import PokemonAbility from './PokemonAbility.js';
 import PokemonType from './PokemonType.js';
+import PokemonMove from './PokemonMove.js';
 
 class Pokemon extends React.Component {
 
@@ -45,8 +46,10 @@ class Pokemon extends React.Component {
 			isMythical: false,
 			isLegendary: false,
 			stats: [],
+			moves: [],
 			selectedAbility: "",
-			selectedType: ""
+			selectedType: "",
+			selectedMove: "",
 		}
 	}
 
@@ -67,6 +70,15 @@ class Pokemon extends React.Component {
 
 	closeTypeModal = () => {
 		this.setState({ isTypeModalOpen: false })
+	}
+
+	openMoveModal = (url) => {
+		this.setState({ selectedMove: url })
+		this.setState({ isMoveModalOpen: true })
+	}
+
+	closeMoveModal = () => {
+		this.setState({ isMoveModalOpen: false })
 	}
 
 	async componentDidMount() {
@@ -129,6 +141,11 @@ class Pokemon extends React.Component {
 				statsData[pokemonJson.stats[i].stat.name] = pokemonJson.stats[i].base_stat;
 			}
 
+			let movesData = [];
+			 for (let i = 0; i < pokemonJson.moves.length; i++) {
+			 	movesData.push([pokemonJson.moves[i].move.name, pokemonJson.moves[i].move.url]);
+			 }
+
 			
 
 			this.setState({
@@ -145,6 +162,7 @@ class Pokemon extends React.Component {
 				isMythical: isMythicalData,
 				isLegendary: isLegendaryData,
 				stats: statsData,
+				moves: movesData,
 				loading: false
 			});
 
@@ -210,6 +228,17 @@ class Pokemon extends React.Component {
 					{(this.state.evolvesFrom === "") ? "" : "Evolves from: " + (Utilities.formatName(this.state.evolvesFrom))}
 				</Box>
 
+				<h3>Moves:</h3>
+				<Flex justify="center" w="100%" wrap="wrap">
+				
+				{this.state.moves.map(move => (
+					<Button key={move[0]} onClick={() => this.openMoveModal(move[1])} m="5px" p="10px">
+						{Utilities.formatName(move[0])}
+					</Button>
+				))}
+
+				</Flex>
+
 			</Flex>
 
 
@@ -229,6 +258,16 @@ class Pokemon extends React.Component {
 
 				<ModalContent>
 					<PokemonType url={this.state.selectedType}/>
+
+				</ModalContent>
+			</Modal>
+
+		{/* Moves Modal */}
+			<Modal isOpen={this.state.isMoveModalOpen} onClose={this.closeMoveModal} size="lg">
+				<ModalOverlay />
+
+				<ModalContent>
+					<PokemonMove url={this.state.selectedMove}/>
 
 				</ModalContent>
 			</Modal>
